@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(https://miro.medium.com/max/851/1*erhIbLAF6U9d3ImF7qVEQA.png);
+    background-size: cover;
+}
+.box{
+    width: 500px;
+    padding: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.9);
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 0px;
+    border-bottom: 5px solid #4caf50;
+    margin-bottom: 30px;
+    padding: 13px 0;
+
+}
+.box p{
+    color: white;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.box input[type = "url"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box input[type = "url"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}
+.box button[type = "button"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.8s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.box button[type = "button"]:hover{
+    background: #2ecc71;
+}
+.resultado {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 440px;
+    height: 55px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    position: absolute;
+    border-radius: 30px;
+    transition: .5s;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: change 10s ease-in-out infinite;
+    text-align: center;
+}
+@keyframes change {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
