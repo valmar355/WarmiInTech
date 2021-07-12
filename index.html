@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>STEM WEEK</title>
+</head>
+<body>
+
+    <form id="myform" class="box" action="index.html" method="POST">
+        <h1 id="titulo">IDENTIFICANDO GATITOS MÁGICAMENTE</h1>
+        <p id="instrucciones">
+            Ingresa la URL de una imagen que contenga un animal para identificar si es un gatito.
+        </p>
+
+        <input id="url" type="url" placeholder="URL de la imágen">
+        <button type="button" class="bon" onclick="sendtoPrediction()">Enviar</button>
+
+    </form>
+    <div class="resultado">
+        <p id="result_space"></p>
+    </div>
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+    function sendtoPrediction() {
+        const url = document.getElementById("url").value;
+        $.ajax ({
+            url: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            beforeSend: function(xhr0bj) {
+                xhr0bj.setRequestHeader("Content-Type", "XXXXXXXXXXXXXX",);
+                xhr0bj.setRequestHeader("Prediction-Key", "XXXXXXXXXXXXXXXXXXXX",);
+
+            },
+            type: "POST",
+            data: '{"URL": "' + url + '"}',
+
+        })
+        .done(function(data){
+            var majorElement = "";
+            var majorProbability = 0;
+            data.predictions.forEach(element => {
+                if (majorProbability < element.probability) {
+                    majorProbability = element.probability
+                    majorElement = element.tagName
+                }
+            });
+            
+            const finalPrediction = round(majorProbability * 100);
+
+            switch (majorElement) {
+                case "Gatos":
+                    document.getElementById("result_space").innerHTML = "La foto corresponde a un gatito con una probabilidad del " + finalPrediction + " %."
+                    break;
+                case "Perros":
+                    document.getElementById("result_space").innerHTML = "La foto corresponde a un perrito con una probabilidad del " + finalPrediction + " %."
+                    break; 
+                default: 
+                    document.getElementById("result_space").innerHTML = "La foto parece no corresponder con el análisis"
+            }
+            console.log(round(majorProbability));
+
+        })
+        .fail(function(){
+            document.getElementById("result_space").innerHTML = "Hubo un error en la ejecución"
+        })
+    }
+
+    function round(num, decimales = 2){
+        var signo =(num >= 0 ? 1 : -1);
+        num =num * signo;
+        if (decimales === 0)
+            return signo *Math.round(num)
+
+        num = num.toString().split('e');
+        num = Math.round(+(num[0] + 'e' + (num[1] ? (+num[1] + decimales) : decimales) ) );
+
+        num = num.toString().split('e');
+        return Math.round(+(num[0] + 'e' + (num[1] ? (+num[1] - decimales) : -decimales) ) );
+
+    }
+
+
+</script>
