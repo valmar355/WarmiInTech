@@ -5,6 +5,8 @@ Vamos
 
 El reto es que tú crees en Custom Vision AI https://www.customvision.ai/projects tu propio modelo de clasificación de Gatos, colocando perros, gatos y si gustas Chihuahuas como negativo (debido a sus orejitas) 👁️‍🗨️
 
+Después usarás el archivo html y css para crear tu aplicación de reconocimento 🧃
+
 Te dejamos links para consultar más información sobre Custom Vision 
 https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
 https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/select-domain
